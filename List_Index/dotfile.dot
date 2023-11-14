@@ -1,54 +1,48 @@
-digraph G {size="30"; rankdir = TB
-splines = ortho; edge[minlen = 3, penwidth = 2];
+digraph G {bgcolor=RosyBrown rankdir = TB
+splines = ortho; edge[minlen = 3, penwidth = 2; color = blue];
 
-Info[shape=record, fillcolor="grey", width=0.2, style="filled",label=" {Capacity: 12 | Size: 7 | Free: 0 | Front: 1 | Back: 9}"] 
+label = "list_dump from function int main(), List/main.cpp:40";
+Info[shape=record, fillcolor="grey", width=0.2, style="filled",label=" {Capacity: 10 | Size: 5 | Free: 6 | Front: 1 | Back: 5}"] 
 
+{rank = max; node0[shape=record, width=0.2, style="filled", fillcolor="purple",label=" {id: 0 | value: NILL | next: 1 | prev: 5}"]} 
+ 
 {rank = same;
-node0[shape=record, width=0.2, style="filled", fillcolor="red",label=" {id: 0 | value: POIZON | next: 2 | prev: -1}"] 
+node1[shape=record, width=0.2, style="filled", fillcolor="green",label=" {id: 1 | value: 10 | next: 2 | prev: 0}"] 
  
-node1[shape=record, width=0.2, style="filled", fillcolor="yellow",label=" {id: 1 | value: 2 | next: 3 | prev: 9}"] 
+node2[shape=record, width=0.2, style="filled", fillcolor="green",label=" {id: 2 | value: 20 | next: 3 | prev: 1}"] 
  
-node2[shape=record, width=0.2, style="filled", fillcolor="red",label=" {id: 2 | value: POIZON | next: 10 | prev: -1}"] 
+node3[shape=record, width=0.2, style="filled", fillcolor="green",label=" {id: 3 | value: 100 | next: 4 | prev: 2}"] 
  
-node3[shape=record, width=0.2, style="filled", fillcolor="yellow",label=" {id: 3 | value: 4 | next: 4 | prev: 1}"] 
+node4[shape=record, width=0.2, style="filled", fillcolor="green",label=" {id: 4 | value: 40 | next: 5 | prev: 3}"] 
  
-node4[shape=record, width=0.2, style="filled", fillcolor="yellow",label=" {id: 4 | value: 5 | next: 5 | prev: 3}"] 
+node5[shape=record, width=0.2, style="filled", fillcolor="green",label=" {id: 5 | value: 50 | next: 0 | prev: 4}"] 
  
-node5[shape=record, width=0.2, style="filled", fillcolor="yellow",label=" {id: 5 | value: 6 | next: 6 | prev: 4}"] 
+node6[shape=record, width=0.2, style="filled", fillcolor="red",label=" {id: 6 | value: POIZON | next: 7 | prev: -1}"] 
  
-node6[shape=record, width=0.2, style="filled", fillcolor="yellow",label=" {id: 6 | value: 7 | next: 7 | prev: 5}"] 
+node7[shape=record, width=0.2, style="filled", fillcolor="red",label=" {id: 7 | value: POIZON | next: 8 | prev: -1}"] 
  
-node7[shape=record, width=0.2, style="filled", fillcolor="yellow",label=" {id: 7 | value: 9 | next: 8 | prev: 6}"] 
+node8[shape=record, width=0.2, style="filled", fillcolor="red",label=" {id: 8 | value: POIZON | next: 9 | prev: -1}"] 
  
-node8[shape=record, width=0.2, style="filled", fillcolor="yellow",label=" {id: 8 | value: 9 | next: 9 | prev: 7}"] 
- 
-node9[shape=record, width=0.2, style="filled", fillcolor="yellow",label=" {id: 9 | value: 10 | next: 1 | prev: 8}"] 
- 
-node10[shape=record, width=0.2, style="filled", fillcolor="red",label=" {id: 10 | value: POIZON | next: 11 | prev: -1}"] 
- 
-node11[shape=record, width=0.2, style="filled", fillcolor="red",label=" {id: 11 | value: POIZON | next: 0 | prev: -1}"] 
+node9[shape=record, width=0.2, style="filled", fillcolor="red",label=" {id: 9 | value: POIZON | next: 0 | prev: -1}"] 
  
 }
-Free->node0
+Free->node6
 Front->node1
-Back->node9
+Back->node5
 
 edge[color=darkgreen, constraint = true]
-node0 -> node1 -> node2 -> node3 -> node4 -> node5 -> node6 -> node7 -> node8 -> node9 -> node10 -> node11
+node0 -> node1 -> node2 -> node3 -> node4 -> node5 -> node6 -> node7 -> node8 -> node9
 [style=invis, weight = 10000];
 
 edge[style=solid, constraint = false]
-node0 -> node2;
-node1 -> node3;
-node2 -> node10;
+node1 -> node2;
+node2 -> node3;
 node3 -> node4;
 node4 -> node5;
-node5 -> node6;
+node5 -> node0;
 node6 -> node7;
 node7 -> node8;
 node8 -> node9;
-node9 -> node1;
-node10 -> node11;
-node11 -> node0;
+node9 -> node0;
 
 }

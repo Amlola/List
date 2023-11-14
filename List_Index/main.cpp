@@ -2,38 +2,43 @@
 
 
 int main()
-    {
+    {    
     LIST list = {};
-
-    int retvalue = 0;
 
     ListCtor(&list);
 
-    for (size_t i = 1; i < 11; i++) 
-        {
-        PushBack(&list, i);
-        }
-
-    ListDelete(&list, 1);
-
-    ListDelete(&list, 0);
-
-    ListDelete(&list, 6);
-
-    ListDelete(&list, 6);
-
-    ListInsert(&list, 10, 6);
-
-    ListInsert(&list, 9, 6);
+    //PushFront(&list, 5);
+    
+    PushBack(&list, 10);
+   
+    PushBack(&list, 20);
 
     ListGraphDump(&list);
 
-    PushFront(&list, 1);
+    PushBack(&list, 30);
 
-    ListInsert(&list, 2, 1);
+    PushBack(&list, 40);
+   
+    PushBack(&list, 50);
 
-    ListDump(&list);
+    ListGraphDump(&list);
 
+    iterator_t it = Begin(&list);
+
+    it = NextCurIndex(&list, it);
+
+    it = NextCurIndex(&list, it);
+
+    ListDelete(&list, it);
+
+    it = End(&list);
+
+    it = PrevCurIndex(&list, it);
+
+    ListInsert(&list, 100, it);
+
+    ListGraphDump(&list);
+        
     ListDtor(&list);
     
     return 0;

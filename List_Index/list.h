@@ -11,6 +11,8 @@
 #ifdef DUMP
     #define ON_DUMP(...) __VA_ARGS__
     #define ListDump(list_ptr) ListDumpFunction(list_ptr, __FILE__, __PRETTY_FUNCTION__, __LINE__)
+    #define ListGraphDump(list_ptr) ListGraphDumpFunction(list_ptr, __FILE__, __PRETTY_FUNCTION__, __LINE__);
+
 #else
     #define ON_DUMP(...)
 #endif
@@ -46,7 +48,7 @@ typedef int List_type;
 
 
 const int size_list     =   0;
-const int capacity_list =   6;
+const int capacity_list =   10;
 const int size_extend   =   2;
 
 const int ZERO          =   0;
@@ -127,15 +129,13 @@ const LIST_STATUS ErrorArray[] =
 
 int ListCtor(LIST* list);
 
-static void SetList(LIST* list);
-
-void ListDumpFunction(LIST* list, const char* path, const char* signature, unsigned line);
+static void SetList(LIST* list, size_t size);
 
 int ListVerify(LIST* list);
 
 void ListDtor(LIST* list);
 
-int ListInsert(LIST* list, List_type value, size_t index);
+int ListInsert(LIST* list, List_type value, iterator_t index);
 
 int PushBack(LIST* list, List_type value);
 
@@ -145,11 +145,9 @@ int PopBack(LIST* list);
 
 int PopFront(LIST* list);
 
-int ListDelete(LIST* list, size_t index);
+int ListDelete(LIST* list, iterator_t index);
 
 static int ListResize(LIST* list, int new_capacity_list);
-
-void ListGraphDump(LIST* list);
 
 iterator_t FindByIndex(LIST* list, size_t index);
 
@@ -160,5 +158,11 @@ iterator_t PrevCurIndex(LIST* list, size_t index);
 iterator_t Begin(LIST* list);
 
 iterator_t End(LIST* list);
+
+void UpdateParams(LIST* list); 
+
+void ListDumpFunction(LIST* list, const char* path, const char* signature, unsigned line);
+
+ void ListGraphDumpFunction(LIST* list, const char* path, const char* signature, unsigned line);
 
 
