@@ -399,7 +399,7 @@ ON_DUMP
 
         print("digraph G {bgcolor=RosyBrown rankdir = TB\n" "splines = ortho; edge[minlen = 3, penwidth = 2; color = blue];\n\n");
 
-        print("label = \"list_dump from function %s, List/%s:%d\";\n", signature, path, line);
+        print("label = \"list_dump from function %s, List_Index/%s:%d\";\n", signature, path, line);
 
         print("Info[shape=record, fillcolor=\"grey\", width=0.2, style=\"filled\","
                 "label=\" {Capacity: %d | Size: %d | Free: %d | Front: %d | Back: %d}\"] \n\n",
@@ -426,7 +426,16 @@ ON_DUMP
                         i, i, list->data[i].value, list->data[i].next, list->data[i].prev);
                 }   
             }
-        print("}\nFree->node%d\n", list->free);
+        
+        print("}\n");
+
+        print("Free[color=orange, style=filled]");
+
+        print("Front[color=orange, style=filled]");
+
+        print("Back[color=orange, style=filled]");
+
+        print("Free->node%d\n", list->free);
 
         print("Front->node%d\n", list->front);
 
@@ -466,7 +475,7 @@ ON_DUMP
 
         log_file = fopen("log_file.html", "a");
 
-        fprintf(logfile, "<pre>\n");
+        fprintf(log_file, "<pre>\n");
 
         fprintf(log_file, "<img width=\"1100px\" height=\"500px\" src=\"graph%d.png\">", dump_number);
 

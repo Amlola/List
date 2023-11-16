@@ -1,0 +1,21 @@
+digraph G {
+bgcolor=RosyBrown rankdir=TB;
+ splines = ortho;label = "list_dump from function int main(), List_Nodes/main.cpp:38";
+{rank = max; 12070584[shape=record, width=0.2, style="filled", fillcolor=purple,label=" {ip: 00B82EB8 | data: 0 | next: 00B82ED0 | prev: 00B80C90 }"]
+}
+{rank = same;12070608[shape=record, width=0.2, style="filled", fillcolor="#7293ba",label=" {ip: 00B82ED0 | data: 10 | next: 00B82EE8 | prev: 00B82EB8 }"]
+12070632[shape=record, width=0.2, style="filled", fillcolor="#7293ba",label=" {ip: 00B82EE8 | data: 20 | next: 00B80C60 | prev: 00B82ED0 }"]
+12061792[shape=record, width=0.2, style="filled", fillcolor="#7293ba",label=" {ip: 00B80C60 | data: 100 | next: 00B80C78 | prev: 00B82EE8 }"]
+12061816[shape=record, width=0.2, style="filled", fillcolor="#7293ba",label=" {ip: 00B80C78 | data: 40 | next: 00B80C90 | prev: 00B80C60 }"]
+12061840[shape=record, width=0.2, style="filled", fillcolor="#7293ba",label=" {ip: 00B80C90 | data: 50 | next: 00B82EB8 | prev: 00B80C78 }"]
+}
+Front[color=green, style=filled]Back[color=green, style=filled]Front->12070608[color=blue, style=filled]
+Back->12061840[color=blue, style=filled]
+12070584->12070608->12070632->12061792->12061816->12061840->12070584[color = "invis"];
+12070584->12070608[color=darkgreen, constraint=false];
+12070608->12070632[color=darkgreen, constraint=false];
+12070632->12061792[color=darkgreen, constraint=false];
+12061792->12061816[color=darkgreen, constraint=false];
+12061816->12061840[color=darkgreen, constraint=false];
+12061840->12070584[color=darkgreen, constraint=false];
+}

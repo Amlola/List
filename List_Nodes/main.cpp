@@ -2,11 +2,11 @@
 
 
 int main()
-    {    
-    LIST list = {};
+    {
+    List list = {};
 
     ListCtor(&list);
-    
+
     PushBack(&list, 10);
    
     PushBack(&list, 20);
@@ -23,21 +23,21 @@ int main()
 
     iterator_t it = Begin(&list);
 
-    it = NextCurIndex(&list, it);
+    it = NextCurNode(it);
 
-    it = NextCurIndex(&list, it);
+    it = NextCurNode(it);
 
     ListDelete(&list, it);
 
     it = End(&list);
 
-    it = PrevCurIndex(&list, it);
+    it = PrevCurNode(it);
 
-    ListInsert(&list, 100, it);
+    ListInsert(&list, it, 100);
 
     ListGraphDump(&list);
-        
-    ListDtor(&list);
-    
+
+    //ListDtor(&list);
+
     return 0;
     }

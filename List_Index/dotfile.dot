@@ -1,7 +1,7 @@
 digraph G {bgcolor=RosyBrown rankdir = TB
 splines = ortho; edge[minlen = 3, penwidth = 2; color = blue];
 
-label = "list_dump from function int main(), List/main.cpp:40";
+label = "list_dump from function int main(), List_Index/main.cpp:38";
 Info[shape=record, fillcolor="grey", width=0.2, style="filled",label=" {Capacity: 10 | Size: 5 | Free: 6 | Front: 1 | Back: 5}"] 
 
 {rank = max; node0[shape=record, width=0.2, style="filled", fillcolor="purple",label=" {id: 0 | value: NILL | next: 1 | prev: 5}"]} 
@@ -26,7 +26,7 @@ node8[shape=record, width=0.2, style="filled", fillcolor="red",label=" {id: 8 | 
 node9[shape=record, width=0.2, style="filled", fillcolor="red",label=" {id: 9 | value: POIZON | next: 0 | prev: -1}"] 
  
 }
-Free->node6
+Free[color=orange, style=filled]Front[color=orange, style=filled]Back[color=orange, style=filled]Free->node6
 Front->node1
 Back->node5
 
